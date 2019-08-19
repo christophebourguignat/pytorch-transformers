@@ -89,6 +89,7 @@ MODELS = [(BertModel,       BertTokenizer,      'bert-base-uncased'),
 # Let's encode some text in a sequence of hidden-states using each model:
 for model_class, tokenizer_class, pretrained_weights in MODELS:
     # Load pretrained model/tokenizer
+    # The model is set in evaluation mode by default using `model.eval()` (Dropout deactivated)
     tokenizer = tokenizer_class.from_pretrained(pretrained_weights)
     model = model_class.from_pretrained(pretrained_weights)
 
